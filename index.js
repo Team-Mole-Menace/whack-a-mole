@@ -5,7 +5,6 @@ document.getElementById('submit').addEventListener('click', () => {
         alert('Please enter a name');
         return;
     }
-    localStorage.clear();
     localStorage.setItem('name', JSON.stringify(player));
     window.location.replace('game.html');
 });
