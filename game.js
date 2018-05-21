@@ -1,7 +1,7 @@
 
-/* globals App */
+/* globals GameApp */
 
 const root = document.getElementById('root');
-const app = new App();
+const app = new GameApp();
 const dom = app.render();
 root.appendChild(dom);
