@@ -1,7 +1,6 @@
 /* exported App */
 /* globals Countdown */
 
-const root = document.getElementById('root');
 const gameAppTemplate = document.getElementById('game-app-template');
 const duration = 30000;
 const name = 'hello world';
@@ -15,7 +14,7 @@ class App {
     }
 
     startGame() {
-        this.ScoreTimer = new Countdown(this.duration, () => {
+        this.Countdown = new Countdown(this.duration, () => {
             // this function is called when the countdown has expired and game is over
         });
         this.sectionScoreTimer.appendChild(this.Countdown.render());
@@ -26,25 +25,22 @@ class App {
     render() {
         // create dom for timer/score and board
         const dom = gameAppTemplate.content;
-        const sectionScoreTimer = dom.getElementById('section-score-timer');
+        this.sectionScoreTimer = dom.getElementById('section-score-timer');
         const sectionMoleBoard = dom.getElementById('section-mole-board');
-        dom.appendChild(sectionScoreTimer);
         dom.appendChild(sectionMoleBoard);
-        // append dom to root
-        root.appendChild(dom);
-
+        
         this.sectionScoreTimer = dom.getElementById('section-score-timer');
         // const sectionMoleBoard = dom.getElementById('section-mole-board');
-
+        
         this.startGame();
-
+        
         console.log('this section', this.sectionScoreTimer);
-
+        
         dom.appendChild(this.sectionScoreTimer);
-        // dom.appendChild(sectionMoleBoard);
 
-        console.log('dom', dom);
+        // console.log('doodles', this.sectionScoreTimer);
 
+        return dom;
         // start game
         //   this.startGame();
     }
