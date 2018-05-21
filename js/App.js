@@ -10,16 +10,13 @@ class App {
 
     constructor(name) {
         this.name = name;
-    //    this.duration =  duration is used only by timer.  Not necessary in app.
+        //    this.duration =  duration is used only by timer.  Not necessary in app.
         this.score = 0;
     }
 
     startGame() {
         this.ScoreTimer = new Countdown(this.duration, () => {
             // this function is called when the countdown has expired and game is over
-        this.Countdown = new Countdown(this.duration, () => {
-            // Store score in localStorage
-            // Redirect to leaderboard.html
         });
         this.sectionScoreTimer.appendChild(this.Countdown.render());
         // this.Moles = new Moles();
@@ -49,6 +46,6 @@ class App {
         console.log('dom', dom);
 
         // start game
-     //   this.startGame();
+        //   this.startGame();
     }
 }
