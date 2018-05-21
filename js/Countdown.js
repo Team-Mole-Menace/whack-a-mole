@@ -16,8 +16,11 @@ class Countdown {
         this.timer = setInterval(() => {
             const tempTime = new Date();
             let currentTime = tempTime.getSeconds();
-            if(currentTime < 0) {
-                currentTime -= 60;
+            if(currentTime - this.startTime < 0) {
+                this.aboveSixty = true;
+            }
+            if(this.aboveSixty) {
+                currentTime += 60;
             }
             if((currentTime - this.startTime) > this.duration) {
                 this.timeExpired();
@@ -25,6 +28,7 @@ class Countdown {
             else {
                 this.countdown.textContent = this.duration - (currentTime - this.startTime) + 'sec';
             }
+            console.log('cur', currentTime, 'start', this.startTime);
         }, 1000);
     }
 
