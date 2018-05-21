@@ -13,6 +13,36 @@
         <div class="container" id="title">
             <h1>WHACK-A-MOLE!</h1>
         </div>
+<!-- TEMPLATE ROOT -->
+        <template id="root"></template>
+
+<!-- TEMPLATE GAMEAPP -->
+        <template id="game-app-template">
+            <section id="section-score-timer"></section>
+            <section id="section-mole-board"></section>
+        </template>
+
+<!-- TEMPLATE SCORE-TIMER -->
+        <template id="score-timer-template">
+            <div class="container" id="score-timer">
+                <!-- NAME SCORE TIME -->
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </template>
+
+<!-- TEMPLATE MOLE-BOARD -->
+        <template id="mole-board-template">
+            <div class="container" id="mole-board">
+                <span class="mole"></span>
+            </div>
+        </template>
+
     </div>
 </body>
+<script src="js/Moles.js"></script>
+<script src="js/ScoreTimer.js"></script>
+<script src="js/GameApp.js"></script>
+<script src="game.js"></script>
 </html>
