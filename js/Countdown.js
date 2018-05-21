@@ -15,12 +15,12 @@ class Countdown {
     update() {
         const tempTime = new Date();
         const currentTime = (tempTime.getHours() * 10000) + (tempTime.getMinutes() * 100) + tempTime.getSeconds();
-        console.log('current time', currentTime);
         if((currentTime - this.startTime) >= this.duration) {
             this.timeExpired();
         }
         else {
-            this.countdown.textContent = currentTime - this.startTime;
+            this.countdown.textContent = 30 - (currentTime - this.startTime) + 'sec';
+            console.log('countodnw', this.countdown);
         }
     }
 
