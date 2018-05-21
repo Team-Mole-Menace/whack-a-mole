@@ -6,12 +6,12 @@ const gameAppTemplate = document.getElementById('game-app-template');
 class GameApp {
 
     constructor() {
-        this.name = 'hello world';
+        this.name = JSON.parse(localStorage.getItem('name'));
         this.score = 0;
     }
 
     startGame() {
-        this.Countdown = new Countdown(this.duration, () => {
+        this.Countdown = new Countdown(this.name, this.duration, () => {
             // this function is called when the countdown has expired and game is over
             clearInterval(this.Countdown.timer);
         });

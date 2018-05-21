@@ -5,7 +5,8 @@ const scoreTimerTemplate = document.getElementById('score-timer-template');
 
 class Countdown {
 
-    constructor(duration, timeExpired) {
+    constructor(name, duration, timeExpired) {
+        this.name = name;
         this.duration = 30;
         this.timeExpired = timeExpired;
         const tempTime = new Date();
@@ -36,6 +37,7 @@ class Countdown {
         const dom = scoreTimerTemplate.content;
 
         const scoreSpots = dom.querySelectorAll('span');
+        scoreSpots[0].textContent = this.name;
         this.countdown = scoreSpots[2];
 
         this.update();
