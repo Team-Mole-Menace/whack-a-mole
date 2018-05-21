@@ -11,7 +11,7 @@ class App {
     constructor(name) {
         this.name = name;
     //    this.duration =  duration is used only by timer.  Not necessary in app.
-        this.score = 0
+        this.score = 0;
     }
 
     startGame() {
