@@ -6,24 +6,25 @@ const scoreTimerTemplate = document.getElementById('score-timer-template');
 class Countdown {
 
     constructor(duration, timeExpired) {
-        this.duration = duration;
+        this.duration = 30;
         this.timeExpired = timeExpired;
         const tempTime = new Date();
-        this.startTime = (tempTime.getHours() * 10000) + (tempTime.getMinutes() * 100) + tempTime.getSeconds()
+        this.startTime = (tempTime.getHours() * 10000) + (tempTime.getMinutes() * 100) + tempTime.getSeconds();
     }
 
     update() {
-        const tempTime = new Date();
-        const currentTime = (tempTime.getHours() * 10000) + (tempTime.getMinutes() * 100) + tempTime.getSeconds();
-        if((currentTime - this.startTime) >= this.duration) {
-            this.timeExpired();
-        }
-        else {
-            this.countdown.textContent = 30 - (currentTime - this.startTime) + 'sec';
-            console.log('countodnw', this.countdown);
-        }
+        this.timer = setInterval(() => {
+            const tempTime = new Date();
+            const currentTime = (tempTime.getHours() * 10000) + (tempTime.getMinutes() * 100) + tempTime.getSeconds();
+            console.log(currentTime - this.startTime);
+            if((currentTime - this.startTime) > this.duration) {
+                this.timeExpired();
+            }
+            else {
+                this.countdown.textContent = this.duration - (currentTime - this.startTime) + 'sec';
+            }
+        }, 500);
     }
-
 
     render() {
         const dom = scoreTimerTemplate.content;
@@ -32,6 +33,7 @@ class Countdown {
         this.countdown = scoreSpots[2];
 
         this.update();
+        
 
         dom.appendChild(this.countdown);
 
