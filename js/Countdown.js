@@ -1,4 +1,4 @@
-/* exported ScoreTimer */
+/* exported Countdown */
 /* globals */
 
 const scoreTimerTemplate = document.getElementById('score-timer-template');
@@ -8,32 +8,32 @@ class Countdown {
     constructor(duration, timeExpired) {
         this.duration = duration;
         this.timeExpired = timeExpired;
-
+        const tempTime = new Date();
+        this.startTime = (tempTime.getHours() * 10000) + (tempTime.getMinutes() * 100) + tempTime.getSeconds()
     }
 
     update() {
-        const tempDate = new Date();
-        const currentTime = tempDate.getHours() + tempDate.getMinutes() + tempDate.getSeconds();
+        const tempTime = new Date();
+        const currentTime = (tempTime.getHours() * 10000) + (tempTime.getMinutes() * 100) + tempTime.getSeconds();
+        console.log('current time', currentTime);
         if((currentTime - this.startTime) >= this.duration) {
-            // send callback to redirect
+            this.timeExpired();
         }
         else {
-            this.scoreSpots[2].textContent = currentTime - this.startTime;
+            this.countdown.textContent = currentTime - this.startTime;
         }
-
     }
 
 
     render() {
         const dom = scoreTimerTemplate.content;
 
-        this.scoreSpots = dom.querySelectorAll('span');
-        this.scoreSpots[0] = this.name;
-        console.log(this.scoreSpots);
+        const scoreSpots = dom.querySelectorAll('span');
+        this.countdown = scoreSpots[2];
 
         this.update();
-        dom.appendChild(this.scoreSpots);
 
+        dom.appendChild(this.countdown);
 
         return dom;
     }

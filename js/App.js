@@ -17,11 +17,13 @@ class App {
     startGame() {
         this.ScoreTimer = new Countdown(this.duration, () => {
             // this function is called when the countdown has expired and game is over
+        this.Countdown = new Countdown(this.duration, () => {
             // Store score in localStorage
             // Redirect to leaderboard.html
         });
-        this.ScoreTimer.render();
+        this.sectionScoreTimer.appendChild(this.Countdown.render());
         // this.Moles = new Moles();
+        console.log('section', this.sectionScoreTimer);
     }
 
     render() {
@@ -33,6 +35,18 @@ class App {
         dom.appendChild(sectionMoleBoard);
         // append dom to root
         root.appendChild(dom);
+
+        this.sectionScoreTimer = dom.getElementById('section-score-timer');
+        // const sectionMoleBoard = dom.getElementById('section-mole-board');
+
+        this.startGame();
+
+        console.log('this section', this.sectionScoreTimer);
+
+        dom.appendChild(this.sectionScoreTimer);
+        // dom.appendChild(sectionMoleBoard);
+
+        console.log('dom', dom);
 
         // start game
      //   this.startGame();
