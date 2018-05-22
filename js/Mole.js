@@ -2,17 +2,19 @@
 
 class Mole {
 
-    constructor(mole, handleMoleIsWhacked) {
+    constructor(mole, handleMoleIsWhacked, difficulty) {
         this.mole = mole;
         this.inactiveDuration = function() {return parseInt((Math.random() * 1000)) + 1000;};
         this.activeDuration = function() {return parseInt((Math.random() * 1000)) + 500;};
         this.handleMoleIsWhacked = handleMoleIsWhacked;
+        this.moleIsGood = true;
+        this.difficulty = difficulty;
     }
 
     render() {
         this.mole.addEventListener('mousedown', () => {
             if(this.moleIsActive) {
-                this.handleMoleIsWhacked();
+                this.handleMoleIsWhacked(this.moleIsGood);
                 this.renderHit();
             }
             else {
@@ -34,7 +36,12 @@ class Mole {
     }
 
     renderHit() {
-        this.mole.src = 'images/mole-hit.png';
+        if(this.moleIsGood) {
+            this.mole.src = 'images/mole-hit.png';
+        }
+        else {
+            this.mole.src = 'images/mole-bad-hit.png';
+        }
         this.mole.id = 'mole-hit';
         this.moleIsActive = false;
         clearTimeout(this.timeOut);
@@ -45,7 +52,20 @@ class Mole {
 
 
     renderActive() {
-        this.mole.src = 'images/mole.png';
+        const temp = parseInt(Math.random() * this.difficulty);
+        if(temp === 1) {
+            this.moleIsGood = false;
+        }
+        else {
+            this.moleIsGood = true;
+        }
+
+        if(this.moleIsGood) {
+            this.mole.src = 'images/mole.png';
+        }
+        else {
+            this.mole.src = 'images/mole-bad.png';
+        }
         this.mole.id = 'mole-active';
         this.moleIsActive = true;
         clearTimeout(this.timeOut);
