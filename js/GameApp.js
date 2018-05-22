@@ -9,6 +9,7 @@ class GameApp {
         this.name = JSON.parse(localStorage.getItem('name'));
         this.score = 0;
         this.moles = 5;
+        this.difficulty = 10;
     }
 
     startGame() {
@@ -21,9 +22,16 @@ class GameApp {
         });
         this.sectionScoreTimer.appendChild(this.Countdown.render());
         for(let i = 0; i < this.moles; i++) {
-            this.Moles = new Moles(() => {
-                this.score++;
-                this.sound = new Audio('./sounds/sound.wav');
+            this.Moles = new Moles(this.difficulty, (moleIsGood) => {
+                console.log('higher up  mole is good', moleIsGood);
+                if(moleIsGood) {
+                    this.score++;
+                    this.sound = new Audio('./sounds/sound.wav');
+                }
+                else {
+                    this.score--;
+                    this.sound = new Audio('./sounds/laugh.wav');
+                }
                 this.sound.play();
                 this.updateScore();
             });
