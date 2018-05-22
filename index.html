@@ -14,10 +14,26 @@
         <div class="container" id="title">
             <h1>WHACK-A-MOLE!</h1>
         </div>
-        <label> Enter Player Name: 
+        <form>
+            <label>Enter Player Name:</label>
             <input id="player" type="text" name="playerName" required />
-        </label>
-        <input id="submit" class="submit" type="submit" value="Play" />
+            <label>Choose Number of Moles:</label>
+            <select id="moleQty" name="moleQty">
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option selected value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+            <label>Choose Difficulty:</label>
+            <select id="difficulty" name="difficulty">
+                <option value="easy">easy</option>
+                <option selected value="medium">medium</option>
+                <option value="hard">hard</option>
+            </select>
+            <input id="submit" class="submit" type="submit" value="Play" />
+        </form>      
     </div>
 </body>
 <script src="index.js"></script>
