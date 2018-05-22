@@ -25,7 +25,6 @@ class Mole {
     }
 
     renderInactive() {
-        console.log('active', this.activeDuration(), 'inacttive', this.inactiveDuration());
         const duration = getRandomInt(this.inactiveDuration());
         this.mole.src = 'images/hole.png';
         this.mole.id = 'mole-inactive';
@@ -66,7 +65,6 @@ class Mole {
         else {
             this.mole.src = 'images/mole-bad.png';
         }
-        this.mole.id = 'mole-active';
         this.moleIsActive = true;
         clearTimeout(this.timeOut);
         this.timeOut = setTimeout(() => {
