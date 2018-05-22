@@ -8,8 +8,8 @@ class GameApp {
     constructor() {
         this.name = JSON.parse(localStorage.getItem('name'));
         this.score = 0;
-        this.moles = 5;
-        this.difficulty = 10;
+        this.moles = JSON.parse(localStorage.getItem('moleQty'));
+        this.chance = 10;
     }
 
     startGame() {
@@ -22,7 +22,7 @@ class GameApp {
         });
         this.sectionScoreTimer.appendChild(this.Countdown.render());
         for(let i = 0; i < this.moles; i++) {
-            this.Moles = new Moles(this.difficulty, (moleIsGood) => {
+            this.Moles = new Moles(this.chance, (moleIsGood) => {
                 console.log('higher up  mole is good', moleIsGood);
                 if(moleIsGood) {
                     this.score++;

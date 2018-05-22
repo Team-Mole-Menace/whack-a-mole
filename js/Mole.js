@@ -2,13 +2,13 @@
 
 class Mole {
 
-    constructor(mole, handleMoleIsWhacked, difficulty) {
+    constructor(mole, handleMoleIsWhacked, chance) {
         this.mole = mole;
         this.inactiveDuration = function() {return parseInt((Math.random() * 1000)) + 1000;};
         this.activeDuration = function() {return parseInt((Math.random() * 1000)) + 500;};
         this.handleMoleIsWhacked = handleMoleIsWhacked;
         this.moleIsGood = true;
-        this.difficulty = difficulty;
+        this.chance = chance;
     }
 
     render() {
@@ -52,7 +52,7 @@ class Mole {
 
 
     renderActive() {
-        const temp = parseInt(Math.random() * this.difficulty);
+        const temp = parseInt(Math.random() * this.chance);
         if(temp === 1) {
             this.moleIsGood = false;
         }
