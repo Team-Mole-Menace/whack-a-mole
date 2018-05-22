@@ -104,6 +104,7 @@ input.submit:active {
     justify-content: space-between;
 }
 
+
 #section-score-timer {
     padding: 13px;
     font-size: 2rem;
@@ -111,3 +112,14 @@ input.submit:active {
     justify-content: space-between;
     color: white;
 }
+
+}
+
+ul, li {
+    list-style-type: none;
+}
+
+li {
+    text-align: left;
+}
+
