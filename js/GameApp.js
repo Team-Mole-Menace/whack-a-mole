@@ -8,8 +8,7 @@ class GameApp {
     constructor() {
         this.name = JSON.parse(localStorage.getItem('name'));
         this.score = 0;
-        this.moles = 6;
-        this.sound = new Audio('./sounds/sound.wav');
+        this.moles = 5;
     }
 
     startGame() {
@@ -24,6 +23,7 @@ class GameApp {
         for(let i = 0; i < this.moles; i++) {
             this.Moles = new Moles(() => {
                 this.score++;
+                this.sound = new Audio('./sounds/sound.wav');
                 this.sound.play();
                 this.updateScore();
             });
