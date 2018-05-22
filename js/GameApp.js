@@ -1,5 +1,5 @@
 /* exported GameApp */
-/* globals Countdown */
+/* globals Countdown Moles */
 
 const gameAppTemplate = document.getElementById('game-app-template');
 
@@ -8,19 +8,32 @@ class GameApp {
     constructor() {
         this.name = JSON.parse(localStorage.getItem('name'));
         this.score = 0;
+        this.moles = 5;
     }
 
     startGame() {
-        this.Countdown = new Countdown(this.name, this.duration, () => {
+        this.Countdown = new Countdown(this.name, this.score, this.duration, () => {
             // this function is called when the countdown has expired and game is over
+            console.log('time expired');
+            localStorage.setItem('currentScore', JSON.stringify({ name: this.name, score: this.score }));
             clearInterval(this.Countdown.timer);
+            window.location.replace('leaderboard.html');
         });
         this.sectionScoreTimer.appendChild(this.Countdown.render());
-        // Create some moles
+        for(let i = 0; i < this.moles; i++) {
+            this.Moles = new Moles(() => {
+                this.score++;
+                this.sound = new Audio('./sounds/sound.wav');
+                this.sound.play();
+                this.updateScore();
+            });
+            this.sectionMoleBoard.appendChild(this.Moles.render());
+        }
+        this.updateScore();
     }
 
-    updateTimer() {
-
+    updateScore() {
+        this.sectionScoreTimer.querySelectorAll('span')[1].textContent = this.score;
     }
 
     render() {
@@ -31,8 +44,8 @@ class GameApp {
 
         this.startGame();
 
-        dom.appendChild(this.sectionMoleBoard);
         dom.appendChild(this.sectionScoreTimer);
+        dom.appendChild(this.sectionMoleBoard);
 
         return dom;
     }

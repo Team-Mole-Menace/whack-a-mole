@@ -7,6 +7,7 @@
     <title>Whack-a-Mole!</title>
     <link href="css/main.css" rel="stylesheet">
     <link href="images/icon.png" rel="icon">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 </head>
 <body>
     <div class="container" id="main">
@@ -14,7 +15,16 @@
             <h1>WHACK-A-MOLE!</h1>
         </div>
         <label> Enter Player Name: 
-                <input id="player" type="text" name="playerName" required /></label>
+            <input id="player" type="text" name="playerName" required />
+        </label>
+        <label>Difficulty:
+            <input id="difficulty" type="range" min="0" max="10" step="1" value="0" list="tickmarks">
+        </label>
+        <label id="mole-number">Number of Moles:
+            <input type="text" placeholder="5" maxlength="1" size="1">
+        </lable>
+
+        
         <input id="submit" class="submit" type="submit" value="Play" />
     </div>
 </body>

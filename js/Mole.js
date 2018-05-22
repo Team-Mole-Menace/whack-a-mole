@@ -1,61 +1,61 @@
 /* exported Mole */
 
-const maxInactiveDuration = 5; // the maximum number of seconds a mole will stay in its hole
-const activeDuration = 1; // the number of seconds a mole will be clickable
-
-const moleTemplate = document.getElementById('mole-template').content;
-const rootElement = document.getElementById('section-mole-board');
-
 class Mole {
 
-    constructor(handleMoleIsWhacked) {
+    constructor(mole, handleMoleIsWhacked) {
+        this.mole = mole;
+        this.inactiveDuration = function() {return parseInt((Math.random() * 1000)) + 1000;};
+        this.activeDuration = function() {return parseInt((Math.random() * 1000)) + 500;};
         this.handleMoleIsWhacked = handleMoleIsWhacked;
-        this.moleIsActive = false;
     }
 
     render() {
-        const dom = moleTemplate.cloneNode(true);
-        this.imageElement = dom.querySelector('img');
-        this.imageElement.addEventListener('mousedown', () => {
+        this.mole.addEventListener('mousedown', () => {
             if(this.moleIsActive) {
                 this.handleMoleIsWhacked();
                 this.renderHit();
             }
+            else {
+                return;
+            }
         });
-        rootElement.appendChild(this.imageElement);
         this.renderInactive();
     }
 
     renderInactive() {
-        const duration = getRandomInt(maxInactiveDuration);
-        this.imageElement.src = 'images/hole.png';
+        console.log('active', this.activeDuration(), 'inacttive', this.inactiveDuration());
+        const duration = getRandomInt(this.inactiveDuration());
+        this.mole.src = 'images/hole.png';
+        this.mole.id = 'mole-inactive';
         this.moleIsActive = false;
-        setTimeout(() => {
+        this.timeOut = setTimeout(() => {
             this.renderActive();
-        }, duration * 1000);
+        }, duration);
     }
 
     renderHit() {
-        this.imageElement.src = 'images/mole-hit.png';
+        this.mole.src = 'images/mole-hit.png';
+        this.mole.id = 'mole-hit';
         this.moleIsActive = false;
-        setTimeout(() => {
+        clearTimeout(this.timeOut);
+        this.timeOut = setTimeout(() => {
             this.renderInactive();
         }, 500);
     }
 
 
     renderActive() {
-        this.imageElement.src = 'images/mole.png';
+        this.mole.src = 'images/mole.png';
+        this.mole.id = 'mole-active';
         this.moleIsActive = true;
-        setTimeout(() => {
+        clearTimeout(this.timeOut);
+        this.timeOut = setTimeout(() => {
             this.renderInactive();
-        }, activeDuration * 1000);
+        }, this.activeDuration());
     }
-
-
 }
 
 // copied from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
+    return Math.floor(Math.random() * Math.floor(max)) + 500;
 }
