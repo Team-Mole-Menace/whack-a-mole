@@ -114,10 +114,13 @@ input.submit:active {
 }
 
 ul, li {
+   
     list-style-type: none;
 }
 
-li {
-    text-align: left;
+
+.icon {
+    width: 35px;
+    
 }
 
