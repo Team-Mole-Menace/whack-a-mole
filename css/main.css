@@ -19,3 +19,11 @@ input.submit:active {
     background-color: green;
 
 }
+
+ul, li {
+    list-style-type: none;
+}
+
+li {
+    text-align: left;
+}
