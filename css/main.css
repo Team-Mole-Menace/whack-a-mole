@@ -1,3 +1,20 @@
+#main {
+    width: 400px;
+    margin: auto;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+}
+
+.container h1 {
+    animation: show-biz 50ms
+}
+
 input.submit:active {
     background-color: green;
 

@@ -41,7 +41,6 @@ class Countdown {
         this.countdown = scoreSpots[2];
 
         this.update();
-        
 
         dom.appendChild(this.countdown);
 
