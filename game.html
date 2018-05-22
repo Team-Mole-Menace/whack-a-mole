@@ -7,6 +7,7 @@
     <title>Whack-a-Mole!</title>
     <link href="css/main.css" rel="stylesheet">
     <link href="images/icon.png" rel="icon">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 </head>
 <body>
     <div class="container" id="main">
@@ -19,8 +20,10 @@
 
 <!-- TEMPLATE GAMEAPP -->
         <template id="game-app-template">
-            <section id="section-score-timer"></section>
-            <section id="section-mole-board"></section>
+            <section id="section-score-timer" class="container"></section>
+        <!-- <div class="container" id="mole-board"> -->
+            <section id="section-mole-board" class="container"></section>
+        <!-- </div> -->
         </template>
 
 <!-- TEMPLATE SCORE-TIMER -->
@@ -33,14 +36,14 @@
 
 <!-- TEMPLATE MOLE-BOARD -->
         <template id="mole-template">
-            <img>
+              <img>
         </template>
 
     </div>
 </body>
 
 
-
+<script src="js/Mole.js"></script>
 <script src="js/Moles.js"></script>
 <script src="js/Countdown.js"></script>
 <script src="js/GameApp.js"></script>
