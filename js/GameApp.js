@@ -1,5 +1,5 @@
 /* exported GameApp */
-/* globals Countdown Moles */
+/* globals Countdown Moles Game */
 
 const gameAppTemplate = document.getElementById('game-app-template');
 
@@ -9,10 +9,18 @@ class GameApp {
     constructor() {
         this.name = JSON.parse(localStorage.getItem('name'));
         this.score = 0;
-        this.duration = 30; // play a 30 second game
+        this.duration = 10; // play a 30 second game
         this.moleQty = parseInt(JSON.parse(localStorage.getItem('moleQty')));
         this.totalClicks = 0;
         this.accuracy = 0;
+        this.goodHits = 0;
+    }
+
+    updateScores() {
+        history.push(this.current);
+        history.sort((a, b) => b.score - a.score);
+        // console.log(temp);
+        localStorage.setItem('history', JSON.stringify(history));
     }
 
     startGame() {
@@ -22,10 +30,14 @@ class GameApp {
             // this function is called when the countdown has expired and game is over
             // calculate accuracy
             if(this.totalClicks !== 0) {
-                this.accuracy = Math.round(this.score / this.totalClicks * 100);
+                this.accuracy = Math.round(this.goodHits / this.totalClicks * 100);
             }
-            localStorage.setItem('currentScore', JSON.stringify({ name: this.name, score: this.score, accuracy: this.accuracy.toString() + '%' }));
+
+            const currentGame = new Game(this.name, this.score, this.accuracy.toString() + '%');
+            this.current = currentGame;
             clearInterval(this.Countdown.timer);
+            localStorage.setItem('currentGame', JSON.stringify(currentGame));
+            this.updateScores();
             window.location.replace('leaderboard.html');
         });
         this.sectionScoreTimer.appendChild(this.Countdown.render());
@@ -36,6 +48,7 @@ class GameApp {
                 // This function is called when the mole is whacked
                 if(moleIsGood) {
                     this.score++;
+                    this.goodHits++;
                     this.sound = new Audio('./sounds/sound.wav');
                 }
                 else {

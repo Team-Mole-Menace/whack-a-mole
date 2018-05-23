@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Whack-a-Mole!</title>
     <link href="css/main.css" rel="stylesheet">
+    <link href="mole-rain/main.css" rel="stylesheet">
     <link href="images/icon.png" rel="icon">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 </head>
@@ -19,14 +20,14 @@
         <div id="root"></div>
 
         <template id="leader-board-template">
-            <sectio id="current-score-section"></sectio>
+            <section id="current-score-section"></section>
             <section id="high-scores-section"></section>
         </template>
 
         <!-- CURRENT PLAYER/SCORE TEMPLATE -->
-        <template id="high-scores-template">
+        <template id="rpt-table-template">
             <h2 class="stats-rpt-header">Game Results Report</h2>
-            <table id="high-scores">
+            <table id="high-scores" class="container">
                 <thead>
                     <tr>
                         <th>Player Name</th>
@@ -38,6 +39,14 @@
                     <tr></tr>
                 </tbody>
             </table>
+        </template>
+
+        <template id="row-table-template">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
         </template>
 
 
@@ -56,6 +65,7 @@
 
             <!-- CURRENT DIFFICULTY -->
             <span></span>
+            <input type="submit" id="restart" value="Play again?">
         </template>
 
     <div id="about-us" class="container"> 
@@ -68,11 +78,12 @@
 
     </div>
 </body>
+    <script src="mole-rain/app.js"></script>
+
     <script src="history.js"></script> 
     <script src="ReportRow.js"></script>
     <script src="ReportTable.js"></script>
 
-    <script src="js/HighScores.js"></script>
     <script src="js/CurrentScore.js"></script>
     <script src="js/LeaderboardApp.js"></script>
     <script src="leaderboard.js"></script>   

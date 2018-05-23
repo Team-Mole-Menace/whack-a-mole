@@ -1,4 +1,4 @@
-/* exported history */
+/* exported history Game */
 
 let history;
 
@@ -7,11 +7,11 @@ class Game {
         this.playerName = playerName;
         this.score = score;
         this.accuracy = accuracy;
-    } 
+    }
 }
 const gameData = window.localStorage.getItem('history');
 
-if (gameData) {
+if(gameData) {
     history = JSON.parse(gameData);
 }
 else {
