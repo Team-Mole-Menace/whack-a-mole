@@ -22,9 +22,9 @@ class GameApp {
             // this function is called when the countdown has expired and game is over
             // calculate accuracy
             if(this.totalClicks !== 0) {
-                this.accuracy = Math.round(this.score/this.totalClicks*100);
+                this.accuracy = Math.round(this.score / this.totalClicks * 100);
             }
-            localStorage.setItem('currentScore', JSON.stringify({ name: this.name, score: this.score, accuracy: this.accuracy.toString() + '%'}));
+            localStorage.setItem('currentScore', JSON.stringify({ name: this.name, score: this.score, accuracy: this.accuracy.toString() + '%' }));
             clearInterval(this.Countdown.timer);
             window.location.replace('leaderboard.html');
         });

@@ -8,18 +8,18 @@ class Mole {
         this.moleIsGood = true;
         let difficulty = JSON.parse(localStorage.getItem('difficulty'));
         switch(difficulty) {
-            case "easy":
+            case'easy':
                 this.chance = 20; // chance of bad mole is 1 out of 20 (5%)
                 this.inactiveDuration = function() {return parseInt((Math.random() * 1000)) + 1000;};
                 this.activeDuration = function() {return parseInt((Math.random() * 1000)) + 1000;};
                 break;
-            case "medium":
+            case'medium':
                 this.chance = 10;
                 this.inactiveDuration = function() {return parseInt((Math.random() * 1000)) + 1000;};
                 this.activeDuration = function() {return parseInt((Math.random() * 1000)) + 500;};
                 break;
-            case "hard":
-                this.chance = 5; 
+            case'hard':
+                this.chance = 5;
                 this.inactiveDuration = function() {return parseInt((Math.random() * 1000)) + 1000;};
                 this.activeDuration = function() {return parseInt((Math.random() * 1000)) + 100;};
                 break;
