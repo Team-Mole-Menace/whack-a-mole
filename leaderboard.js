@@ -1,7 +1,6 @@
-/* globals ReportTable history*/
+/* globals LeaderboardApp history*/
 
-initHistory();
-const app = new ReportTable(history);
+const app = new LeaderboardApp();
 const dom = app.render();
 const root = document.getElementById('root');
 root.appendChild(dom);
