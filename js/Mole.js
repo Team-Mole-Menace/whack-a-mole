@@ -81,6 +81,7 @@ class Mole {
         else {
             this.mole.src = 'images/mole-bad.png';
         }
+        this.mole.id = 'mole-active';
         this.moleIsActive = true;
         clearTimeout(this.timeOut);
         this.timeOut = setTimeout(() => {
