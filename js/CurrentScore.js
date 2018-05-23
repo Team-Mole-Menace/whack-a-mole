@@ -9,15 +9,10 @@ class CurrentScore {
     render() {
         const dom = currentScoreTemplate.content;
         const data = dom.querySelectorAll('span');
-        data[1].textContent = this.current.playerName;
-        data[2].textContent = this.current.score + 'pts';
-        data[3].textContent = this.current.accuracy;
+        data[1].textContent = this.current.score + 'pts';
+        data[2].textContent = this.current.accuracy;
 
-        dom.getElementById('restart').addEventListener('click', (event) => {
-            event.preventDefault();
-            window.location.replace('index.html');
-        });
-
+   
         return dom;
     }
 }
