@@ -15,32 +15,50 @@
             <h1>WHACK-A-MOLE!</h1>
             <h3>Leader Board</h3>
         </div>
+        <!-- ROOT -->
         <div id="root"></div>
-        <div>
-            <template id="rpt-table-template">
-                <h2 class="stats-rpt-header">Game Results Report</h2>
-                <table class="hidden">
-                    <thead>
-                        <tr>
-                            <th>Player Name</th>
-                            <th>Score</th>
-                            <th>Accuracy</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </template>
-        
-            <template id="row-table-template">
-                <tr>
-                    <td class="player-name"></td>
-                    <td></td>
-                    <td class="percent"></td>
-                </tr>
-            </template>
-        </div>
-    </div>
-    <div id="about-us"> 
+
+        <template id="leader-board-template">
+            <sectio id="current-score-section"></sectio>
+            <section id="high-scores-section"></section>
+        </template>
+
+        <!-- CURRENT PLAYER/SCORE TEMPLATE -->
+        <template id="high-scores-template">
+            <h2 class="stats-rpt-header">Game Results Report</h2>
+            <table id="high-scores">
+                <thead>
+                    <tr>
+                        <th>Player Name</th>
+                        <th>Score</th>
+                        <th>Accuracy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr></tr>
+                </tbody>
+            </table>
+        </template>
+
+
+        <!-- TOP x PLAYERS/SCORES -->
+        <template id="current-score-template">
+            <!-- CONSTANT TEXT -->
+            <span>
+                Current results:
+            </span>
+            
+            <!-- CURRENT PLAYER -->
+            <span></span>
+            
+            <!-- CURRENT SCORE -->
+            <span></span>
+
+            <!-- CURRENT DIFFICULTY -->
+            <span></span>
+        </template>
+
+    <div id="about-us" class="container"> 
         <h2>About Us</h2>
         <ul>
             <li><img class="icon" src="images/icon.png">Erik Aanestad</li>
@@ -53,5 +71,9 @@
     <script src="history.js"></script> 
     <script src="ReportRow.js"></script>
     <script src="ReportTable.js"></script>
+
+    <script src="js/HighScores.js"></script>
+    <script src="js/CurrentScore.js"></script>
+    <script src="js/LeaderboardApp.js"></script>
     <script src="leaderboard.js"></script>   
 </html>
