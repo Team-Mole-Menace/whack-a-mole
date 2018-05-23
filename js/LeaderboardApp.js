@@ -10,6 +10,10 @@ class LeaderboardApp {
         this.history = localStorage.getItem('history');
     }
 
+    updateScores() {
+
+    }
+
     render() {
         const dom = leaderBoardTemplate.content;
         const currentScoreSection = dom.getElementById('current-score-section');
@@ -18,7 +22,7 @@ class LeaderboardApp {
         // doThis();
 
         const Current = new CurrentScore(this.current);
-        const High = new HighScores(this.history, this.current);
+        // const High = new HighScores(this.history, this.current);
 
         currentScoreSection.appendChild(Current.render());
         // highScoresSection.appendChild(High.render());
