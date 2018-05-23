@@ -1,3 +1,0 @@
-/* exported getAccuracy */
-
-function getAccuracy()

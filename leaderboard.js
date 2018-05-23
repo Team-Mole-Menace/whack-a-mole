@@ -1,7 +1,5 @@
 /* globals LeaderboardApp history*/
 
-
-
 const app = new LeaderboardApp();
 
 const dom = app.render();
