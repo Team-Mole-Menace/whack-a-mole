@@ -10,7 +10,7 @@
 ## How to play
 * The game starts when you enter your name
 * Click on the moles as they pop up
-* Score incriments with each successful mole hit
+* Score increments with each successful mole hit
 * Leaderboard will be displayed once the time runs out
 
 ## How to run

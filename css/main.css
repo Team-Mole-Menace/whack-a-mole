@@ -73,8 +73,20 @@ input, select {
 
 #gamedesc {
     text-align: left;
+}
+#bluemole {
+    color: aqua
+}
+
+#redmole {
+    color: red
+}
+
+.icon {
+    width: 35px;
     
 }
+
 input.submit:active {
     background-color: green;
 }
@@ -128,10 +140,7 @@ ul, li {
 }
 
 
-.icon {
-    width: 35px;
-    
-}
+
 
 
 
