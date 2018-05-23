@@ -14,7 +14,6 @@
     <div class="container" id="main">
         <div class="container" id="title">
             <h1>WHACK-A-MOLE!</h1>
-            <h3>Leader Board</h3>
         </div>
         <!-- ROOT -->
         <div id="root"></div>
@@ -27,25 +26,26 @@
         <!-- CURRENT PLAYER/SCORE TEMPLATE -->
         <template id="rpt-table-template">
             <h2 class="stats-rpt-header">Game Results Report</h2>
-            <table id="high-scores" class="container">
-                <thead>
-                    <tr>
-                        <th>Player Name</th>
-                        <th>Score</th>
-                        <th>Accuracy</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr></tr>
-                </tbody>
-            </table>
+            <div id="table-div">
+                <table id="high-scores" class="container border">
+                    <thead>
+                        <tr>
+                            <th>Player Name</th>
+                            <th>Score</th>
+                            <th>Accuracy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
         </template>
 
         <template id="row-table-template">
             <tr>
                 <td></td>
-                <td></td>
-                <td></td>
+                <td class="number-column"></td>
+                <td class="number-column"></td>
             </tr>
         </template>
 
@@ -54,26 +54,23 @@
         <template id="current-score-template">
             <!-- CONSTANT TEXT -->
             <span>
-                Current results:
+                Your Score:
             </span>
-            
-            <!-- CURRENT PLAYER -->
-            <span></span>
             
             <!-- CURRENT SCORE -->
             <span></span>
 
             <!-- CURRENT DIFFICULTY -->
             <span></span>
-            <input type="submit" id="restart" value="Play again?">
         </template>
-
+        
+    <input type="submit" id="submit" value="Play again?">
     <div id="about-us" class="container"> 
-        <h2>About Us</h2>
+        <h3>About Us</h3>
         <ul>
-            <li><img class="icon" src="images/icon.png">Erik Aanestad</li>
-            <li></li><img class="icon" src="images/icon.png">Karen Painter</li>
-            <li></li><img class="icon" src="images/icon.png">Carmen Ramos</li>
+            <li><img class="icon" src="images/icon.png">Erik Aanestad - <span>musician, teacher, super coder</span></li>
+            <li><img class="icon" src="images/icon.png">Karen Painter - <span>unemployed mother of two</span></li>
+            <li><img class="icon" src="images/icon.png">Carmen Ramos - <span>food and nutrition enthusiast</span></li>
         </ul>
 
     </div>
