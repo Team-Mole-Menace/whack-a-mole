@@ -42,7 +42,7 @@ body {
 
 label {
     margin-top: 33px;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 input, select {
     margin-top: 33px;
@@ -87,8 +87,19 @@ input, select {
     
 }
 
-input.submit:active {
-    background-color: green;
+#submit {
+    border: 1px solid black;
+    background: aqua;
+    border-radius: 6px;
+    padding: 13px 66px;
+}
+
+#submit:active {
+    background: red;
+}
+
+#submit:hover {
+    background: yellow;
 }
 
 #section-mole-board {
@@ -139,7 +150,12 @@ ul, li {
     list-style-type: none;
 }
 
-
+form {
+    border: 3px solid black;
+    border-radius: 13px;
+    padding: 13px;
+    background: rgba(255, 255, 255, .25);
+}
 
 
 

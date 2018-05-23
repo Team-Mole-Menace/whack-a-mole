@@ -20,9 +20,11 @@
             <p>Take a deep breath and play your best!</p>
            
         </div>
+        <br><br>
         <form>
             <label>Enter Player Name:</label>
-            <input id="player" type="text" name="playerName" required />
+            <input id="player" type="text" name="playerName" required placeholder="Morocco Mole" />
+            <br>
             <label>Choose Number of Moles:</label>
             <select id="moleQty" name="moleQty">
                 <option value="3">3</option>
@@ -31,13 +33,16 @@
                 <option value="6">6</option>
                 <option value="7">7</option>
                 <option value="8">8</option>
+                <option value="9">9</option>
             </select>
+            <br>
             <label>Choose Difficulty:</label>
             <select id="difficulty" name="difficulty">
                 <option value="easy">easy</option>
                 <option selected value="medium">medium</option>
                 <option value="hard">hard</option>
             </select>
+            <br>
             <input id="submit" class="submit" type="submit" value="Play" />
         </form>      
     </div>

@@ -5,7 +5,7 @@
     for(var r = 0; r < dropCount; r++) {
         console.log('making rain');
 
-        var randomX = Math.round(Math.random() * 50) + 25;
+        var randomX = Math.round(Math.random() * 75) + 10;
         var randomY = Math.round(Math.random() * 50);
         var randomD = Math.round(Math.random() * 30) + 60;
         console.log(randomX, ' ', randomY);
