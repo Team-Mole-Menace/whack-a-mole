@@ -110,10 +110,6 @@ input, select {
     background-image: url('../images/grass2.png');
     background-size: auto;
     background-repeat: repeat;
-    border-top: 13px solid black;
-    border-left: 13px solid black;
-    border-right: 13px solid white;
-    border-bottom: 13px solid white;
 }
 
 .border {
