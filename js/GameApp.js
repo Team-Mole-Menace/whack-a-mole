@@ -11,6 +11,8 @@ class GameApp {
         this.score = 0;
         this.duration = 30; // play a 30 second game
         this.moleQty = parseInt(JSON.parse(localStorage.getItem('moleQty')));
+        this.totalClicks = 0;
+        this.accuracy = 0;
     }
 
     startGame() {
@@ -18,7 +20,11 @@ class GameApp {
         // start a countdown clock
         this.Countdown = new Countdown(this.duration, () => {
             // this function is called when the countdown has expired and game is over
-            localStorage.setItem('currentScore', JSON.stringify({ name: this.name, score: this.score }));
+            // calculate accuracy
+            if(this.totalClicks !== 0) {
+                this.accuracy = Math.round(this.score / this.totalClicks * 100);
+            }
+            localStorage.setItem('currentScore', JSON.stringify({ name: this.name, score: this.score, accuracy: this.accuracy.toString() + '%' }));
             clearInterval(this.Countdown.timer);
             window.location.replace('leaderboard.html');
         });
@@ -41,6 +47,12 @@ class GameApp {
             });
             this.sectionMoleBoard.appendChild(this.Moles.render());
         }
+
+        // add event listener to mole board to record total clicks
+        this.sectionMoleBoard.addEventListener('mousedown', (event) => {
+            event.preventDefault();
+            this.totalClicks++;
+        });
 
         // set the user name and the initial score
         this.sectionScoreTimer.querySelectorAll('span')[0].textContent = this.name;
