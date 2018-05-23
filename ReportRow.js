@@ -12,7 +12,7 @@ class ReportRow {
         const columns = dom.querySelectorAll('td');
         columns[0].textContent = this.game.playerName;
         columns[1].textContent = this.game.score;
-        columns[2].textContent = '0 %'; 
+        columns[2].textContent = this.game.accuracy; 
         return dom;
     }
    
