@@ -66,6 +66,15 @@ input, select {
     text-shadow: 0 0 33px black;
 }
 
+#gamerules {
+    font-size: 1.5rem;
+    width: auto;
+}
+
+#gamedesc {
+    text-align: left;
+    
+}
 input.submit:active {
     background-color: green;
 }
