@@ -9,28 +9,12 @@ class Game {
         this.accuracy = accuracy;
     }
 }
-const gameData = window.localStorage.getItem('history');
 
+// if game data exists in storage, get it.  Otherwise, start with an empty history array
+const gameData = window.localStorage.getItem('history');
 if(gameData) {
     history = JSON.parse(gameData);
 }
 else {
     history = [];
 }
-
-
-//  function initHistory() {
-    
-//     history = [
-//         new Game ('Bill Gates', 123, '10%'),
-//         new Game ('Warren Buffet', 250, '20%'),
-//         new Game ('Jeff Bezos', 345, '35%')
-//     ];
-    
-// }
-
-
-
-
-
-

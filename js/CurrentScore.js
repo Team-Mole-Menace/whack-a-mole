@@ -11,8 +11,7 @@ class CurrentScore {
         const data = dom.querySelectorAll('span');
         data[1].textContent = this.current.score + 'pts';
         data[2].textContent = this.current.accuracy;
-
-   
+        
         return dom;
     }
 }

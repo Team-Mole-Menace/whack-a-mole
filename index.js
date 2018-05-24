@@ -1,4 +1,5 @@
 
+// when clicked, this button stores user preferences and starts the game
 document.getElementById('submit').addEventListener('click', (event) => {
     event.preventDefault();
     // get values from form

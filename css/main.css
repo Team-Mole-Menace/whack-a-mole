@@ -44,6 +44,7 @@ label {
     margin-top: 33px;
     font-size: 1.5rem;
 }
+
 input, select {
     margin-top: 33px;
     font-size: 2rem;
@@ -84,7 +85,6 @@ input, select {
 
 .icon {
     width: 35px;
-    
 }
 
 #submit {
@@ -141,7 +141,6 @@ input, select {
     justify-content: space-between;
 }
 
-
 #section-score-timer {
     padding: 13px;
     font-size: 2rem;
@@ -150,19 +149,6 @@ input, select {
     color: white;
 }
 
-ul, li {
-    text-align: left;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-li span {
-    font-size: .85rem;
-}
-h3 {
-    padding: 0;
-    margin: 40px 0 0 0;
-}
 form {
     border: 3px solid black;
     border-radius: 13px;
@@ -170,6 +156,33 @@ form {
     background: rgba(255, 255, 255, .25);
 }
 
+/* about us section */
+ul, li {
+    text-align: left;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li span {
+    font-size: .85rem;
+}
+
+h3 {
+    padding: 0;
+    margin: 40px 0 0 0;
+}
+
+#current-score-section {
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    width: fit-content;
+    margin: 20px auto 0 auto;
+}
+
+/* high score table */
 #high-scores {
     width: auto;
     margin-left: auto;
@@ -189,13 +202,4 @@ th {
 
 td, th {
     padding: 10px;
-}
-
-#current-score-section {
-    background-color: white;
-    border: 3px solid black;
-    border-radius: 10px;
-    padding: 10px;
-    width: fit-content;
-    margin: 20px auto 0 auto;
 }

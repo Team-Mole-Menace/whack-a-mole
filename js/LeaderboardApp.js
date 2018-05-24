@@ -6,8 +6,7 @@ const leaderBoardTemplate = document.getElementById('leader-board-template');
 class LeaderboardApp {
 
     constructor() {
-        this.current = JSON.parse(localStorage.getItem('currentGame'));
-        // // this.history = localStorage.getItem('history');
+        this.current = JSON.parse(localStorage.getItem('currentGame'))
     }
 
     render() {
