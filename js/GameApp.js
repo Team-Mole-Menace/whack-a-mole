@@ -9,7 +9,7 @@ class GameApp {
     constructor() {
         this.name = JSON.parse(localStorage.getItem('name'));
         this.score = 0;
-        this.duration = 10; // play a 30 second game
+        this.duration = 30; // play a 30 second game
         this.moleQty = parseInt(JSON.parse(localStorage.getItem('moleQty')));
         this.totalClicks = 0;
         this.accuracy = 0;
