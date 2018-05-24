@@ -17,9 +17,13 @@ class GameApp {
     }
 
     // pushes current game to history
-    updateScores() {
+    updateHistory() {
         history.push(this.current);
         history.sort((a, b) => b.score - a.score);
+        // limit leaderboard length to 10 items
+        if (history.length > 10) {
+            history.length = 10;
+        } 
         localStorage.setItem('history', JSON.stringify(history));
     }
 
@@ -36,7 +40,7 @@ class GameApp {
             localStorage.setItem('currentGame', JSON.stringify(currentGame));
             // move to leaderboard
             clearInterval(this.Countdown.timer);
-            this.updateScores();
+            this.updateHistory();
             window.location.replace('leaderboard.html');
         });
         this.sectionScoreTimer.appendChild(this.Countdown.render());
