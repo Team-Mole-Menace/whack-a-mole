@@ -8,17 +8,17 @@ class Mole {
         this.moleIsGood = true;
         let difficulty = JSON.parse(localStorage.getItem('difficulty'));
         switch(difficulty) {
-            case'easy':
+            case 'easy':
                 this.chance = 20; // chance of bad mole is 1 out of 20 (5%)
                 this.inactiveDuration = function() {return parseInt((Math.random() * 1000)) + 1000;};
                 this.activeDuration = function() {return parseInt((Math.random() * 1000)) + 1000;};
                 break;
-            case'medium':
+            case 'medium':
                 this.chance = 10;
                 this.inactiveDuration = function() {return parseInt((Math.random() * 1000)) + 1000;};
                 this.activeDuration = function() {return parseInt((Math.random() * 1000)) + 500;};
                 break;
-            case'hard':
+            case 'hard':
                 this.chance = 5;
                 this.inactiveDuration = function() {return parseInt((Math.random() * 1000)) + 1000;};
                 this.activeDuration = function() {return parseInt((Math.random() * 1000)) + 100;};
@@ -40,14 +40,14 @@ class Mole {
     }
 
     renderInactive() {
-        const duration = getRandomInt(this.inactiveDuration());
         this.mole.src = 'images/hole.png';
         this.mole.id = 'mole-inactive';
         this.moleIsActive = false;
         clearTimeout(this.timeOut);
         this.timeOut = setTimeout(() => {
             this.renderActive();
-        }, duration);
+        }, this.inactiveDuration());
+        console.log ('inactive duration:', this.inactiveDuration())
     }
 
     renderHit() {
@@ -64,7 +64,6 @@ class Mole {
             this.renderInactive();
         }, 500);
     }
-
 
     renderActive() {
         const temp = parseInt(Math.random() * this.chance);
@@ -88,9 +87,4 @@ class Mole {
             this.renderInactive();
         }, this.activeDuration());
     }
-}
-
-// copied from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max)) + 500;
 }

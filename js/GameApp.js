@@ -13,30 +13,29 @@ class GameApp {
         this.moleQty = parseInt(JSON.parse(localStorage.getItem('moleQty')));
         this.totalClicks = 0;
         this.accuracy = 0;
-        this.goodHits = 0;
+        this.goodHits = 0; // used to calculate accuracy
     }
 
+    // pushes current game to history
     updateScores() {
         history.push(this.current);
         history.sort((a, b) => b.score - a.score);
-        // console.log(temp);
         localStorage.setItem('history', JSON.stringify(history));
     }
 
     startGame() {
-
         // start a countdown clock
         this.Countdown = new Countdown(this.duration, () => {
             // this function is called when the countdown has expired and game is over
-            // calculate accuracy
             if(this.totalClicks !== 0) {
                 this.accuracy = Math.round(this.goodHits / this.totalClicks * 100);
             }
-
+            // store game data
             const currentGame = new Game(this.name, this.score, this.accuracy.toString() + '%');
             this.current = currentGame;
-            clearInterval(this.Countdown.timer);
             localStorage.setItem('currentGame', JSON.stringify(currentGame));
+            // move to leaderboard
+            clearInterval(this.Countdown.timer);
             this.updateScores();
             window.location.replace('leaderboard.html');
         });
@@ -48,7 +47,7 @@ class GameApp {
                 // This function is called when the mole is whacked
                 if(moleIsGood) {
                     this.score++;
-                    this.goodHits++;
+                    this.goodHits++; 
                     this.sound = new Audio('./sounds/sound.wav');
                 }
                 else {
@@ -72,6 +71,7 @@ class GameApp {
         this.updateScore();
     }
 
+    // updates the score on the screen as the user is playing
     updateScore() {
         this.sectionScoreTimer.querySelectorAll('span')[1].textContent = this.score + 'pts';
     }

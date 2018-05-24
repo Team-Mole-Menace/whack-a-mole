@@ -8,10 +8,10 @@
 * Moles have invaded the garden; it is your duty to exterminate as many moles as you can in 30 seconds.
 
 ## How to play
-* The game starts when you enter your name
-* Click on the moles as they pop up
-* Score increments with each successful mole hit
-* Leaderboard will be displayed once the time runs out
+* The game starts when you enter your name and choose your options
+* Click on the blue moles as they pop up.  Each successful hit gains you one point.
+* Don't click on a red mole!  You'll lose a point.
+* Your score and the leaderboard will be displayed once the time runs out
 
 ## How to run
 * Clone the whole repository
