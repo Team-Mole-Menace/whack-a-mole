@@ -25,6 +25,7 @@
 * Morocco Mole (The Atom Ant/Secret Squirrel Show)
 * Guacamole (for enhancing the chip-eating experience)
 
+
 ### File structure
 
 ## index.html
@@ -48,8 +49,7 @@ runs timer and alerts when countdown expires
 ## leaderboard.html 
 Final page, shows final score and top 10, and mole rain special effect (has separate folder with it's own app.js and main.css)
 # leaderboard.js 
-calls and appends Leaderboard App
-event listener for Play Again
+calls and appends Leaderboard App, contains event listener for Play Again
 # LeaderboardApp.js 
 appends leaderboard and user’s final score to dom
 # CurrentScore.js 
