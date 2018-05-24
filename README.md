@@ -26,37 +26,37 @@
 * Guacamole (for enhancing the chip-eating experience)
 
 
-### File structure
+# File structure
 
 ## index.html
 Initial page, collects user preferences, displays game rules
-# index.js
+### index.js
 event listener, input validation, writes preferences to local storage, page redirection to game.html
 
 ## game.html
 game board, displays current score and timer
-# game.js 
+### game.js 
 calls GameApp and appends app to root
-# GameApp.js 
+### GameApp.js 
 renders the game, ends game when Countdown reports that time is up, keeps score, writes final score to history array and local storage
-# Moles.js 
+### Moles.js 
 generates moles
-# Mole.js 
+### Mole.js 
 controls the appearance and timing of individual mole
-# Countdown.js 
+### Countdown.js 
 runs timer and alerts when countdown expires
 
 ## leaderboard.html 
 Final page, shows final score and top 10, and mole rain special effect (has separate folder with it's own app.js and main.css)
-# leaderboard.js 
+### leaderboard.js 
 calls and appends Leaderboard App, contains event listener for Play Again
-# LeaderboardApp.js 
+### LeaderboardApp.js 
 appends leaderboard and user’s final score to dom
-# CurrentScore.js 
+### CurrentScore.js 
 renders final score and accuracy
-# ReportTable.js 
+### ReportTable.js 
 renders leaderboard table from local storage
-# ReportRow.js 
+### ReportRow.js 
 renders an individual row in table
 
 ## history.js
