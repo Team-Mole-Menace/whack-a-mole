@@ -18,27 +18,3 @@
     animation: raining ease-in forwards infinite;
     z-index: -1;
 }
-
-
-#rain img {
-    width: 66px;
-}
-
-/* #flood {
-    position: fixed;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    bottom: 0;
-    z-index: 999;
-    background: purple;
-}
-
-@keyframes flood {
-    from {
-        height: 0;
-    }
-    to {
-        height: 100%
-    }
-} */
