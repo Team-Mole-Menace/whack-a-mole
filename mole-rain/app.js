@@ -1,6 +1,6 @@
 //  PURPLE RAIN, PURPLE RAAIINN!!!
 {
-    var dropCount = 30;
+    var dropCount = 40;
     var temp = document.createDocumentFragment();
     for(var r = 0; r < dropCount; r++) {
         console.log('making rain');
@@ -15,20 +15,10 @@
         rain.style = 'left: ' + randomX + '%; width: 3px; top: -1000px;';
         rain.style.setProperty('animation-delay', randomY + '00ms');
         rain.style.setProperty('animation-duration', randomD + '00ms');
-        rain.innerHTML = '<img src="mole-rain/mole-drop.png">';
-        // rain.style.setProperty('background', 'linear-gradient(black, rgb(' + parseInt(Math.random() * 255) + ', ' + parseInt(Math.random() * 255) + ', ' + parseInt(Math.random() * 255) + ')');
+        rain.innerHTML = '<img src="images/mole-drop.png">';
+        rain.querySelector('img').style.width = parseInt(Math.random() * 100) + 10 + 'px';
         console.log(rain);
         temp.appendChild(rain);
     }
     document.body.appendChild(temp);
 }
-
-// {
-//     var flood = document.createElement('span');
-//     flood.id = 'flood';
-//     // flood.textContent = ' ';
-//     flood.style.setProperty('animation', 'flood 5s normal');
-//     setTimeout(() => {
-//         document.body.appendChild(flood);
-//     }, 100);
-// }
