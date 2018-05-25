@@ -1,18 +1,19 @@
 /* exported Moles */
 /* globals Mole */
+
 const moleTemplate = document.getElementById('mole-template');
 
 class Moles {
 
-    constructor(moleIsWhacked) {
+    constructor(difficulty, moleIsWhacked) {
         this.moleIsWhacked = moleIsWhacked;
-        this.score = 0;
+        this.difficulty = difficulty
     }
 
     render() {
         const dom = moleTemplate.content.cloneNode(true);
-        this.mole = dom.querySelector('img');
-        const newMole = new Mole(this.mole, this.moleIsWhacked);
+        const moleImageTag = dom.querySelector('img');
+        const newMole = new Mole(moleImageTag, this.difficulty, this.moleIsWhacked);
         newMole.render();
         return dom;
     }
