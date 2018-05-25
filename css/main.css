@@ -1,19 +1,53 @@
 /* ANIMATIONS */
-@keyframes mole-hit {
+@-webkit-keyframes mole-hit {
     from {
         opacity: 1;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     }
     to {
         opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    }
+}
+@keyframes mole-hit {
+    from {
+        opacity: 1;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    }
+    to {
+        opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    }
+}
+
+@-webkit-keyframes mole-inactive {
+    from {
+        opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    }
+    to {
+        opacity: 1;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     }
 }
 
 @keyframes mole-inactive {
     from {
         opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     }
     to {
         opacity: 1;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    }
+}
+
+@-webkit-keyframes title-flash {
+    from {
+        border: 10px dotted yellow;
+    }
+    to {
+        border: 10px dashed yellow;
     }
 }
 
@@ -42,32 +76,44 @@ body {
 
 label {
     margin-top: 33px;
+    font-size: 24px;
     font-size: 1.5rem;
 }
 
 input, select {
     margin-top: 33px;
+    font-size: 32px;
     font-size: 2rem;
 }
 
 .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     width: auto;
 }
 
 .container h1 {
     margin: auto;
     padding: 13px;
+    font-size: 40px;
     font-size: 2.5rem;
-    animation: title-flash 100ms linear alternate infinite;
+    -webkit-animation: title-flash 100ms linear alternate infinite;
+            animation: title-flash 100ms linear alternate infinite;
     width: auto;
     color: white;
     text-shadow: 0 0 33px black;
 }
 
 #gamerules {
+    font-size: 24px;
     font-size: 1.5rem;
     width: auto;
 }
@@ -92,6 +138,8 @@ input, select {
     background: aqua;
     border-radius: 6px;
     padding: 13px 66px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     margin: 20px auto 0 auto;
 }
@@ -105,8 +153,12 @@ input, select {
 }
 
 #section-mole-board {
-    flex-direction: row;
-    flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     background-image: url('../images/grass2.png');
     background-size: auto;
     background-repeat: repeat;
@@ -129,23 +181,35 @@ input, select {
 }
 
 #mole-inactive {
-    animation: mole-inactive 500ms forwards;
+    -webkit-animation: mole-inactive 500ms forwards;
+            animation: mole-inactive 500ms forwards;
 }
 
 #mole-hit {
-    animation: mole-hit 500ms forwards;
+    -webkit-animation: mole-hit 500ms forwards;
+            animation: mole-hit 500ms forwards;
 }
 
 #mole-board img {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 
 #section-score-timer {
     padding: 13px;
+    font-size: 32px;
     font-size: 2rem;
-    flex-direction: row;
-    justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     color: white;
 }
 
@@ -165,6 +229,7 @@ ul, li {
 }
 
 li span {
+    font-size: 13.6px;
     font-size: .85rem;
 }
 
@@ -178,6 +243,8 @@ h3 {
     border: 3px solid black;
     border-radius: 10px;
     padding: 10px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     margin: 20px auto 0 auto;
 }
