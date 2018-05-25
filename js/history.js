@@ -11,9 +11,9 @@ class Game {
 }
 
 // if game data exists in storage, get it.  Otherwise, start with an empty history array
-const gameData = window.localStorage.getItem('history');
-if(gameData) {
-    history = JSON.parse(gameData);
+const storedHistory = window.localStorage.getItem('history');
+if(storedHistory) {
+    history = JSON.parse(storedHistory);
 }
 else {
     history = [];
