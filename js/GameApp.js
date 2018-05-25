@@ -21,7 +21,7 @@ class GameApp {
         history.push(this.current);
         history.sort((a, b) => b.score - a.score);
         // limit leaderboard length to 10 items
-        if (history.length > 10) {
+        if(history.length > 10) {
             history.length = 10;
         } 
         localStorage.setItem('history', JSON.stringify(history));
@@ -48,11 +48,11 @@ class GameApp {
 
         // create the required quantity of moles
         for(let i = 0; i < this.moleQty; i++) {
-            this.Moles = new Moles(this.difficulty, (moleIsGood) => {
+            this.Moles = new Moles(this.difficulty, (moleIsGood, scoreMultiplier) => {
                 // This function is called when the mole is whacked
                 if(moleIsGood) {
-                    this.score++;
-                    this.goodHits++; 
+                    this.score += 1 * scoreMultiplier;
+                    this.goodHits++;
                     this.sound = new Audio('./sounds/sound.wav');
                 }
                 else {
