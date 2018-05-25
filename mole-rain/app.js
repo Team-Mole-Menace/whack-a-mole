@@ -13,7 +13,7 @@
         rain.style.setProperty('animation-delay', randomY + '00ms');
         rain.style.setProperty('animation-duration', randomD + '00ms');
         rain.addEventListener('animationiteration', () => {
-            const drip = new Audio('../sounds/drip' + (parseInt(Math.random() * 2) + 1) + '.wav'); // plays sound every time a falling mole restarts
+            const drip = new Audio('sounds/drip' + (parseInt(Math.random() * 2) + 1) + '.wav'); // plays sound every time a falling mole restarts
             drip.play();
         });
         rain.innerHTML = '<img src="images/mole-drop.png">';

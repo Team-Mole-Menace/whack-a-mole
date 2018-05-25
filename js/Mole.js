@@ -4,25 +4,28 @@ class Mole {
 
     constructor(moleImageTag, difficulty, handleMoleIsWhacked) {
         this.moleImageTag = moleImageTag;
-        this.difficulty = difficulty
+        this.difficulty = difficulty;
         this.handleMoleIsWhacked = handleMoleIsWhacked;
         this.moleIsGood = true;
-        
+
         switch(this.difficulty) {
-            case 'easy':
+            case'easy':
                 this.chance = 20; // chance of bad mole is 1 out of 20 (5%)
                 this.inactiveDuration = function() {return parseInt((Math.random() * 1000)) + 1000;};
                 this.activeDuration = function() {return parseInt((Math.random() * 1000)) + 1000;};
+                this.scoreMultiplier = 1;
                 break;
-            case 'medium':
+            case'medium':
                 this.chance = 10;
                 this.inactiveDuration = function() {return parseInt((Math.random() * 1000)) + 1000;};
                 this.activeDuration = function() {return parseInt((Math.random() * 1000)) + 500;};
+                this.scoreMultiplier = 2;
                 break;
-            case 'hard':
+            case'hard':
                 this.chance = 5;
                 this.inactiveDuration = function() {return parseInt((Math.random() * 1000)) + 1000;};
                 this.activeDuration = function() {return parseInt((Math.random() * 1000)) + 100;};
+                this.scoreMultiplier = 3;
                 break;
         }
     }
@@ -31,7 +34,7 @@ class Mole {
         this.moleImageTag.addEventListener('mousedown', () => {
             // when mole is clicked, alert parent function and render mole as hit
             if(this.moleIsActive) {
-                this.handleMoleIsWhacked(this.moleIsGood);
+                this.handleMoleIsWhacked(this.moleIsGood, this.scoreMultiplier);
                 this.renderHit();
             }
         });
