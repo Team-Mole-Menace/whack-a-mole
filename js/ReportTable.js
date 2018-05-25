@@ -10,10 +10,10 @@ class ReportTable {
 
     render() {
         const dom = leaderboardReportTemplate.content;
-        this.tableBody = dom.querySelector('tbody');
+        const tableBody = dom.querySelector('tbody');
         for(let i = 0; i < this.history.length; i++) {
-            const reportComponent = new ReportRow(this.history[i]);
-            this.tableBody.appendChild(reportComponent.render());
+            const row = new ReportRow(this.history[i]);
+            tableBody.appendChild(row.render());
         }
         return dom;
     }

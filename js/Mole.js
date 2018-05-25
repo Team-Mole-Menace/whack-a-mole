@@ -2,12 +2,13 @@
 
 class Mole {
 
-    constructor(moleImageTag, handleMoleIsWhacked) {
+    constructor(moleImageTag, difficulty, handleMoleIsWhacked) {
         this.moleImageTag = moleImageTag;
+        this.difficulty = difficulty
         this.handleMoleIsWhacked = handleMoleIsWhacked;
         this.moleIsGood = true;
-        let difficulty = JSON.parse(localStorage.getItem('difficulty'));
-        switch(difficulty) {
+        
+        switch(this.difficulty) {
             case 'easy':
                 this.chance = 20; // chance of bad mole is 1 out of 20 (5%)
                 this.inactiveDuration = function() {return parseInt((Math.random() * 1000)) + 1000;};
@@ -28,12 +29,10 @@ class Mole {
 
     render() {
         this.moleImageTag.addEventListener('mousedown', () => {
+            // when mole is clicked, alert parent function and render mole as hit
             if(this.moleIsActive) {
                 this.handleMoleIsWhacked(this.moleIsGood);
                 this.renderHit();
-            }
-            else {
-                return;
             }
         });
         this.renderInactive();
@@ -41,7 +40,6 @@ class Mole {
 
     renderInactive() {
         this.moleImageTag.src = 'images/hole.png';
-        this.moleImageTag.id = 'mole-inactive';
         this.moleIsActive = false;
         clearTimeout(this.timeOut);
         this.timeOut = setTimeout(() => {
@@ -57,7 +55,6 @@ class Mole {
         else {
             this.moleImageTag.src = 'images/mole-bad-hit.png';
         }
-        this.moleImageTag.id = 'mole-hit';  // what does this do?
         this.moleIsActive = false;
         clearTimeout(this.timeOut);
         this.timeOut = setTimeout(() => {
@@ -66,6 +63,7 @@ class Mole {
     }
 
     renderActive() {
+        // use random to determine if this will be a good mole or a bad mole
         const temp = parseInt(Math.random() * this.chance);
         if(temp === 1) {
             this.moleIsGood = false;
@@ -80,7 +78,7 @@ class Mole {
         else {
             this.moleImageTag.src = 'images/mole-bad.png';
         }
-        this.moleImageTag.id = 'mole-active'; // and this?
+
         this.moleIsActive = true;
         clearTimeout(this.timeOut);
         this.timeOut = setTimeout(() => {

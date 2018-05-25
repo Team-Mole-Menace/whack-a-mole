@@ -8,11 +8,11 @@ class GameApp {
 
     constructor() {
         this.name = JSON.parse(localStorage.getItem('name'));
-        this.score = 0;
-        this.duration = 30; // play a 30 second game
         this.moleQty = parseInt(JSON.parse(localStorage.getItem('moleQty')));
+        this.difficulty = JSON.parse(localStorage.getItem('difficulty'));
+        this.score = 0;
+        this.duration = 30; // play a 30 second game    
         this.totalClicks = 0;
-        this.accuracy = 0;
         this.goodHits = 0; // used to calculate accuracy
     }
 
@@ -31,23 +31,24 @@ class GameApp {
         // start a countdown clock
         this.Countdown = new Countdown(this.duration, () => {
             // this function is called when the countdown has expired and game is over
+            var accuracy = 0;
             if(this.totalClicks !== 0) {
-                this.accuracy = Math.round(this.goodHits / this.totalClicks * 100);
+                accuracy = Math.round(this.goodHits / this.totalClicks * 100);
             }
             // store game data
-            const currentGame = new Game(this.name, this.score, this.accuracy.toString() + '%');
+            const currentGame = new Game(this.name, this.score, accuracy.toString() + '%');
             this.current = currentGame;
             localStorage.setItem('currentGame', JSON.stringify(currentGame));
+            this.updateHistory();
             // move to leaderboard
             clearInterval(this.Countdown.timer);
-            this.updateHistory();
             window.location.replace('leaderboard.html');
         });
         this.sectionScoreTimer.appendChild(this.Countdown.render());
 
         // create the required quantity of moles
         for(let i = 0; i < this.moleQty; i++) {
-            this.Moles = new Moles((moleIsGood) => {
+            this.Moles = new Moles(this.difficulty, (moleIsGood) => {
                 // This function is called when the mole is whacked
                 if(moleIsGood) {
                     this.score++;

@@ -14,11 +14,11 @@ class LeaderboardApp {
         const currentScoreSection = dom.getElementById('current-score-section');
         const highScoresSection = dom.getElementById('high-scores-section');
 
-        const Current = new CurrentScore(this.current);
-        const Table = new ReportTable(history);
+        const current = new CurrentScore(this.current);
+        const table = new ReportTable(history);
 
-        currentScoreSection.appendChild(Current.render());
-        highScoresSection.appendChild(Table.render());
+        currentScoreSection.appendChild(current.render());
+        highScoresSection.appendChild(table.render());
 
         dom.appendChild(currentScoreSection);
         dom.appendChild(highScoresSection);
