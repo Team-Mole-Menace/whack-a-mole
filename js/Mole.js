@@ -2,8 +2,8 @@
 
 class Mole {
 
-    constructor(mole, handleMoleIsWhacked) {
-        this.mole = mole;
+    constructor(moleImageTag, handleMoleIsWhacked) {
+        this.moleImageTag = moleImageTag;
         this.handleMoleIsWhacked = handleMoleIsWhacked;
         this.moleIsGood = true;
         let difficulty = JSON.parse(localStorage.getItem('difficulty'));
@@ -27,7 +27,7 @@ class Mole {
     }
 
     render() {
-        this.mole.addEventListener('mousedown', () => {
+        this.moleImageTag.addEventListener('mousedown', () => {
             if(this.moleIsActive) {
                 this.handleMoleIsWhacked(this.moleIsGood);
                 this.renderHit();
@@ -40,8 +40,8 @@ class Mole {
     }
 
     renderInactive() {
-        this.mole.src = 'images/hole.png';
-        this.mole.id = 'mole-inactive';
+        this.moleImageTag.src = 'images/hole.png';
+        this.moleImageTag.id = 'mole-inactive';
         this.moleIsActive = false;
         clearTimeout(this.timeOut);
         this.timeOut = setTimeout(() => {
@@ -52,12 +52,12 @@ class Mole {
 
     renderHit() {
         if(this.moleIsGood) {
-            this.mole.src = 'images/mole-hit.png';
+            this.moleImageTag.src = 'images/mole-hit.png';
         }
         else {
-            this.mole.src = 'images/mole-bad-hit.png';
+            this.moleImageTag.src = 'images/mole-bad-hit.png';
         }
-        this.mole.id = 'mole-hit';
+        this.moleImageTag.id = 'mole-hit';  // what does this do?
         this.moleIsActive = false;
         clearTimeout(this.timeOut);
         this.timeOut = setTimeout(() => {
@@ -75,12 +75,12 @@ class Mole {
         }
 
         if(this.moleIsGood) {
-            this.mole.src = 'images/mole.png';
+            this.moleImageTag.src = 'images/mole.png';
         }
         else {
-            this.mole.src = 'images/mole-bad.png';
+            this.moleImageTag.src = 'images/mole-bad.png';
         }
-        this.mole.id = 'mole-active';
+        this.moleImageTag.id = 'mole-active'; // and this?
         this.moleIsActive = true;
         clearTimeout(this.timeOut);
         this.timeOut = setTimeout(() => {
