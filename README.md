@@ -1,4 +1,7 @@
 # WHACK-A-MOLE
+
+// initial commit 
+
 ## Contributors
 * Karen Painter
 * Carmen Ramos
