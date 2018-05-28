@@ -20,8 +20,9 @@ class LeaderboardApp {
         currentScoreSection.appendChild(current.render());
         highScoresSection.appendChild(table.render());
 
-        dom.appendChild(currentScoreSection);
-        dom.appendChild(highScoresSection);
+        // already in dom!
+        // dom.appendChild(currentScoreSection);
+        // dom.appendChild(highScoresSection);
 
         return dom;
     }

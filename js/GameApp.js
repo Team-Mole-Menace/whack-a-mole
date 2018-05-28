@@ -23,7 +23,7 @@ class GameApp {
         // limit leaderboard length to 10 items
         if(history.length > 10) {
             history.length = 10;
-        } 
+        }
         localStorage.setItem('history', JSON.stringify(history));
     }
 
@@ -46,8 +46,14 @@ class GameApp {
         });
         this.sectionScoreTimer.appendChild(this.Countdown.render());
 
+        // This loop should be in "Moles", let it handle creating the moles
+        // (it is named the Moles component after all!). Callback would still
+        // come from this component!
+        
         // create the required quantity of moles
         for(let i = 0; i < this.moleQty; i++) {
+            // Classes are TitleCased. An instance (especially a property) would be
+            // this.moles = 
             this.Moles = new Moles(this.difficulty, (moleIsGood, scoreMultiplier) => {
                 // This function is called when the mole is whacked
                 if(moleIsGood) {
@@ -65,6 +71,7 @@ class GameApp {
             this.sectionMoleBoard.appendChild(this.Moles.render());
         }
 
+        // This should be coming up from Moles: 
         // add event listener to mole board to record total clicks
         this.sectionMoleBoard.addEventListener('mousedown', (event) => {
             event.preventDefault();
@@ -89,8 +96,9 @@ class GameApp {
 
         this.startGame();
 
-        dom.appendChild(this.sectionScoreTimer);
-        dom.appendChild(this.sectionMoleBoard);
+        // these are already in dom, no need to append
+        // dom.appendChild(this.sectionScoreTimer);
+        // dom.appendChild(this.sectionMoleBoard);
 
         return dom;
     }

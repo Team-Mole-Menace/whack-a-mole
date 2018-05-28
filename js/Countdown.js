@@ -5,35 +5,38 @@ const scoreTimerTemplate = document.getElementById('score-timer-template');
 
 class Countdown {
 
-    constructor(duration, timeExpired) {
+    constructor(duration, onTimeExpired) {
         // Game duration
         this.duration = duration;
 
         // End of game function
-        this.timeExpired = timeExpired;
+        this.onTimeExpired = onTimeExpired;
 
         // Needed to track countdown
-        const tempTime = new Date();
-        this.startTime = tempTime.getSeconds();
+        this.startTime = new Date().getSeconds();
     }
 
     update() {
         // Update timer every 1000ms
         this.timer = setInterval(() => {
-            const tempTime = new Date();
-            let currentTime = tempTime.getSeconds();
-            if(currentTime - this.startTime < 0) {
+            let currentTime = new Date().getSeconds();
+            const elapsed = currentTime - this.startTime;
+
+            // I don't get the "aboveSixty" and += 60.
+            // Isn't the elapsed time absolute number of seconds?
+            if(elapsed < 0) {
                 this.aboveSixty = true;
             }
             // Check if Date() seconds has reset to 59
             if(this.aboveSixty) {
                 currentTime += 60;
             }
-            if((currentTime - this.startTime) > this.duration) {
-                this.timeExpired();
+
+            if(elapsed > this.duration) {
+                this.onTimeExpired();
             }
             else {
-                this.countdown.textContent = this.duration - (currentTime - this.startTime) + 'sec';
+                this.countdown.textContent = (this.duration - elapsed) + 'sec';
             }
         }, 1000);
     }

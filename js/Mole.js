@@ -48,7 +48,7 @@ class Mole {
         this.timeOut = setTimeout(() => {
             this.renderActive();
         }, this.inactiveDuration());
-        console.log ('inactive duration:', this.inactiveDuration())
+        console.log('inactive duration:', this.inactiveDuration());
     }
 
     renderHit() {

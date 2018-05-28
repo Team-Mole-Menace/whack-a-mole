@@ -7,7 +7,7 @@ class Moles {
 
     constructor(difficulty, moleIsWhacked) {
         this.moleIsWhacked = moleIsWhacked;
-        this.difficulty = difficulty
+        this.difficulty = difficulty;
     }
 
     render() {
